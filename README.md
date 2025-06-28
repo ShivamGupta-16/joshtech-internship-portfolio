@@ -27,22 +27,12 @@ This project showcases my ability to design and build a fully functional and res
 
 ---
 
-## 🚀 Features
-
-- 🎨 Clean, modern, and responsive design  
-- 🧑‍💻 "About Me" section with career summary  
-- 📁 Projects section with links and descriptions  
-- 📞 Contact section with working form (UI only)  
-- 🖱️ Smooth scroll and interactive elements  
-- 🌙 Light and dark mode toggle *(if applicable)*  
-
----
 
 ## 🔧 Technologies Used
 
-- **HTML5** – Semantic markup  
-- **CSS3** – Flexbox, Grid, Animations  
-- **JavaScript (Vanilla)** – DOM manipulation, event handling  
+- **HTML5**  
+- **CSS3** 
+- **JavaScript (Vanilla)**  
 
 ---
 
@@ -75,21 +65,13 @@ portfolio-joshtech/
 ├── index.html          # Main HTML file
 ├── style.css           # Styling file
 ├── script.js           # JavaScript file
-├── assets/             # Images and other media
+├── images/             # Images and other media
+├── screenshots/        # screenshot of the project (website)
 └── README.md           # This file
 ```
 
 ---
 
-## 🙋‍♂️ About Me
-
-Hi! I'm **Shivam**, a passionate frontend developer and aspiring software engineer.  
-This portfolio demonstrates my skills in building beautiful and interactive UIs with just HTML, CSS, and JavaScript.
-
-- 🔗 [LinkedIn](https://www.linkedin.com/in/your-link)
-- 📧 your.email@example.com
-
----
 
 ## 📢 Disclaimer
 
