@@ -2,13 +2,28 @@
 
 This is a **personal portfolio website** built as part of the frontend assignment for the internship recruitment process at **Josh Technology**. The project was developed using only **HTML**, **CSS**, and **JavaScript**, as per the assessment requirements.
 
-Although the project was **not selected**, it reflects my ability to design and build a fully functional and responsive frontend using core web technologies without the use of external libraries or frameworks.
+This project showcases my ability to design and build a fully functional and responsive frontend using core web technologies without relying on external libraries or frameworks.
+
 
 ---
 
-## 📸 Preview
+## 🖼️ Screenshots
 
-![Portfolio Screenshot](./screenshot.png) <!-- Replace this path with your actual screenshot path -->
+### 🔝 Hero Section & Header
+![Hero Screenshot](./screenshots/hero.png)
+
+### 📁 Projects Section
+![Projects Screenshot](./screenshots/projects.png)
+
+### 🧠 Skills Section
+![Skills Screenshot](./screenshots/skills.png)
+
+### 💬 Recommendations Section
+![Recommendations Screenshot](./screenshots/recommendations.png)
+
+### 📞 Footer Section
+![Footer Screenshot](./screenshots/footer.png)
+
 
 ---
 
@@ -35,7 +50,7 @@ Although the project was **not selected**, it reflects my ability to design and 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/portfolio-joshtech.git
+   git clone https://github.com/ShivamGupta-16/joshtech-internship-portfolio.git
    ```
 
 2. **Navigate to the project folder:**
