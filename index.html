@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav & Hero Section</title>
+  <!-- Google Fonts: Open Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Header Section -->
+<header>
+  <nav class="navbar">
+    <a href="#" class="logo">
+      <img src="/images/Logo.svg" alt="Logo" >
+    </a>
+    <div class="menu">
+      <a href="#" id="home" >Home</a>
+      <a href="#skills"  >Skills</a>
+      <a href="#education" >Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#recommendations">Recommendations</a>
+      <a href="#contact" id="contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- Hero Section -->
+
+  <section class="hero">
+    <img src="/images/Polygon_1.svg" alt="Ploygon" class="shape Polygon_1">
+    <img src="/images/Ellipse_12.svg" alt="Ellipse" class="shape Ellipse_12">
+    <img src="/images/Ellipse_13.svg" alt="Ellipse" class="shape Ellipse_13">
+    <img src="/images/Ellipse_15.svg" alt="Ellipse" class="shape Ellipse_15">
+    <img src="/images/Ellipse_16.svg" alt="Ellipse" class="shape Ellipse_16">
+    <img src="/images/Rectangle_51.svg" alt="Rectangle" class="shape Rectangle_51">
+    <img src="/images/Rectangle_52.svg" alt="Rectangle" class="shape Rectangle_52">
+
+    <div class="hero-content">
+      <h1>I'm <span>Rayan Adlrdard</span><br> <span class="highlight">Front-end</span> Developer</h1>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, volutpat feugiat placerat lobortis. Natoque rutrum semper sed suspendisse nunc lectus.</p>
+      <button class="cta-btn">
+        <span class="hire-me-text">HIRE ME</span>
+        <img src="/images/arrow.png" alt="Arrow" class="arrow-img" />
+      </button>
+    </div>
+  </section>
+
+ <!-- Skills & Languages Section -->
+
+<section id="skills" class="skills-section">
+  <div class="skills-header">
+    <h2>Skills & Languages</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+  </div>
+  
+  <!-- Default Skills List -->
+  <div class="skills-list">
+    <span class="skill">HTML</span>
+    <span class="skill">CSS</span>
+    <span class="skill">JavaScript</span>
+    <span class="skill">Python</span>
+    <span class="skill">PostgreSQL</span>
+  </div>
+  
+  <!-- Add Skill Button + Modal Trigger -->
+  <div class="add-skill-wrapper">
+    <button class="add-skill-btn" onclick="openModal()">+ Add Skill</button>
+  </div>
+
+  <!-- Modal -->
+  <div id="skillModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" onclick="closeModal()">&times;</span>
+      <h3>Add a Skill</h3>
+      <input type="text" id="skillInput" placeholder="Enter a skill..." />
+      <button onclick="saveSkill()">Save</button>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+
+<section class="project-section">
+  <div class="project-description">
+    <h2>Projects</h2>
+    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum
+    </p>
+  </div>
+
+  <div class="row1">
+    <div class="card">
+      <img src="/images/row1col1.svg" alt="two men discussing">
+      <div class="frame">
+        <div class="project">
+        <div class="project-heading"><h3>How to make Flyer Design</h3></div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, consec adipiscing elit awd and lorem ipsum...</p></div>
+      </div>
+      <div class="tech-stack">
+        <span class="tag">Typescript</span>
+        <span class="tag">ReactJs</span>
+        <span class="tag">NextJs</span>
+        <span class="tag">CSS</span>
+        <span class="tag">HTML</span>
+        <span class="tag">MongoDB</span>
+      </div>     
+      </div>
+    </div>
+    <div class="card">
+      <img src="/images/row1col2.svg" alt="two men discussing">
+      <div class="frame">
+        <div class="project">
+        <div class="project-heading"><h3>How to make Flyer Design</h3></div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, consec adipiscing elit awd and lorem ipsum...</p></div>
+      </div>
+      <div class="tech-stack">
+        <span class="tag">Typescript</span>
+        <span class="tag">ReactJs</span>
+        <span class="tag">NextJs</span>
+        <span class="tag">CSS</span>
+      </div>     
+      </div>
+    </div>
+    <div class="card">
+      <img src="/images/row1col3.svg" alt="two men discussing">
+      <div class="frame">
+        <div class="project">
+        <div class="project-heading"><h3>How to make Flyer Design</h3></div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, consec adipiscing elit awd and lorem ipsum...</p></div>
+      </div>
+      <div class="tech-stack">
+          <span class="tag">Typescript</span>
+          <span class="tag">ReactJs</span>
+          <span class="tag">NextJs</span>
+          <span class="tag">CSS</span>
+          <span class="tag">HTML</span>
+          <span class="tag">MongoDB</span>
+      </div>     
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="row2">
+    <div class="card">
+      <img src="/images/row2col1.svg" alt="two men discussing">
+      <div class="frame">
+        <div class="project">
+        <div class="project-heading"><h3>How to make Flyer Design</h3></div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, consec adipiscing elit awd and lorem ipsum...</p></div>
+      </div>
+      <div class="tech-stack">
+        <span class="tag">Typescript</span>
+        <span class="tag">ReactJs</span>
+        <span class="tag">NextJs</span>
+        <span class="tag">CSS</span>
+        <span class="tag">HTML</span>
+        <span class="tag">MongoDB</span>
+      </div>     
+      </div>
+    </div>
+    <div class="card">
+      <img src="/images/row1col1.svg" alt="two men discussing">
+      <div class="frame">
+        <div class="project">
+        <div class="project-heading"><h3>How to make Flyer Design</h3></div>
+        <div class="description"><p>Lorem ipsum dolor sit amet, consec adipiscing elit awd and lorem ipsum...</p></div>
+      </div>
+      <div class="tech-stack">
+        <span class="tag">Typescript</span>
+        <span class="tag">ReactJs</span>
+        <span class="tag">NextJs</span>
+        <span class="tag">CSS</span>
+      </div>     
+      </div>
+    </div>
+    <div class="card">
+      <img src="/images/row2col3.svg" alt="two men discussing">
+      <div class="frame">
+        <div class="project">
+          <div class="project-heading"><h3>How to make Flyer Design</h3></div>
+          <div class="description"><p>Lorem ipsum dolor sit amet, consec adipiscing elit awd and lorem ipsum...</p></div>
+        </div>
+      <div class="tech-stack">
+        <span class="tag">Typescript</span>
+        <span class="tag">ReactJs</span>
+        <span class="tag">NextJs</span>
+        <span class="tag">CSS</span>
+        <span class="tag">HTML</span>
+        <span class="tag">MongoDB</span>
+      </div>     
+      </div>
+    </div>   
+  </div>
+</section>
+
+<!-- Recommendations Section -->
+
+<section class="recommendations">
+  <div class="recommendations-description">
+    <h2>Recommendations</h2>
+    <p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. lorem ipsum</p>
+  </div>
+  
+  <div class="carousel-wrapper">
+    <div class="carousel-track">
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Great Quality!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile1.svg" width="40" height="40" alt="User">
+          <div class="profile-text">
+            <h4>James Gouse</h4>
+            <p>Graphic Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Amazing work!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile2.svg" width="40" height="40" alt="User">
+          <div class="profile-text">
+            <h4>Tiana Philips</h4>
+            <p>Photographer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Great Quality!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile3.svg" width="40" height="40" alt="User">
+          <div class="profile-text" style="width: 100%; max-width: 159px;">
+            <h4>Talan Westervelt</h4>
+            <p>Business man</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Great Quality!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile1.svg" width="40" height="40" alt="User">
+          <div class="profile-text">
+            <h4>James Gouse</h4>
+            <p>Graphic Designer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Amazing work!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile2.svg" width="40" height="40" alt="User">
+          <div class="profile-text">
+            <h4>Tiana Philips</h4>
+            <p>Photographer</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Great Quality!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile3.svg" width="40" height="40" alt="User">
+          <div class="profile-text" style="width: 100%; max-width: 159px;">
+            <h4>Talan Westervelt</h4>
+            <p>Business man</p>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="stars"><img src="/images/Rating.svg" alt="Rating"></div>
+        <div class="recommendation-head"><h4><pre>Great Quality!</pre></h4></div>
+        <div class="recommendation-p"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae nulla diam in ac dictum a urna viverra morbi. Morbi donec amet....</p></div>
+        <div class="profile">
+          <img src="/images/Profile1.svg" width="40" height="40" alt="User">
+          <div class="profile-text">
+            <h4>James Gouse</h4>
+            <p>Graphic Designer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="dots">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>  
+
+</div>
+</section>
+
+<!-- Contact Section -->
+
+<section class="contact-section">
+    <form class="submit-info">
+      <h2>Leave ME your info</h2>
+      <div class="info-details">
+        <div class="info-name">
+          <label for="4"><h4>Your Full Name (Required)</h4></label>
+          <input class="input-box" type="text" id="4">
+        </div>
+        <div class="info-email">
+          <label for="3"><h4>Your Email (Required)</h4></label>
+          <input class="input-box" type="email" id="3">
+        </div>
+        <div class="info-subject">
+          <label for="2"><h4>Subject</h4></label>
+          <input class="input-box" type="text" id="2">
+        </div>
+        <div class="info-message">
+          <label for="1"><h4>Your Message</h4></label>
+          <input class="input-message" type="text" id="1">
+        </div>
+
+        <button class="msg-btn" type="submit"><span>SEND MESSAGE</span></button>
+      </div>
+    </form>
+    <div class="contact-info">
+      <h2>Contact information</h2>
+        <div class="contact-location">
+          <div class="contact-icons">
+          <img src="/images/Ellipse41.svg"  alt="ellipse background">
+          <img src="/images/location.svg"  alt="location icon">
+          </div>
+          <div class="location-detail">
+            <div class="location-h">
+            <h4>Country:</h4>
+            <h4>City:</h4>
+            <h4>Street:</h4>
+            </div>
+            <div class="location-p">
+              <p>Bangladesh</p>
+              <p>Dhaka</p>
+              <p>35 vhatara, Badda</p>
+            </div>
+
+          </div>
+      </div>
+        <div class="contact-email">
+          <div class="contact-icons">
+          <img src="/images/Ellipse41.svg"  alt="ellipse background">
+          <img src="/images/mail.svg"  alt="mail icon">
+          </div>
+          <div class="location-detail">
+            <div class="location-h">
+            <h4>Email:</h4>
+            <h4>Skype:</h4>
+            <h4>Telegram:</h4>
+            </div>
+            <div class="location-p">
+              <p>youremail@gmail.com</p>
+              <p>@yourusername</p>
+              <p>@yourusername</p>
+            </div>
+
+          </div>
+      </div>
+
+        <div class="contact-mobile">
+          <div class="contact-icons">
+          <img src="/images/Ellipse41.svg"  alt="ellipse background">
+          <img src="/images/Mobile.svg"  alt="mobile icon">
+          </div>
+          <div class="location-detail">
+            <div class="location-h">
+            <h4>Support Services:</h4>
+            <h4>Office:</h4>
+            <h4>Personal:</h4>
+            </div>
+            <div class="location-p">
+              <p>15369</p>
+              <p>+58 (021)356 587 235</p>
+              <p>+58 (021)356 587 235</p>
+            </div>
+
+          </div>
+      </div>
+      
+    </div>
+
+</section>
+</main>
+
+<!-- Footer Section -->
+
+<footer>
+  <div class="footer-logos">
+
+    <img src="/images/footer1.svg" alt="partner-logo">
+    <img src="/images/footer2.svg" alt="partner-logo">
+    <img src="/images/footer3.svg" alt="partner-logo">
+    <img src="/images/footer4.svg" alt="partner-logo">
+    
+  </div>
+  <div class="others">
+    <a href="#"><img src="/images/Logo.svg" id="footer-logo" alt="logo"></a>
+    <div class="footer-links">
+      <div class="f-logos">
+        <div class="upwork">
+          <img src="/images/upwork.svg" alt="upwork logo">
+          <p>4.5/5 rating on Lorem </p>
+        </div>
+        <div class="dribble">
+          <img src="/images/dribble.svg" alt="dribble logo">
+          <p>9/10 rating on Ipsum</p>
+        </div>
+        <div class="fiverr">
+          <img src="/images/fiverr.svg" alt="fiverr logo">
+          <p>4.5/5 Rating on dorel</p>
+        </div>
+
+      </div>
+      <div class="other-links">
+
+        <div class="quick-links">
+          <h3>Quick Links</h3>
+          <div class="quick">
+            <a href="#">Home</a>
+            <a href="#">Skills</a>
+            <a href="#">Education</a>
+            <a href="#">Projects</a>
+            <a href="#">Recommendations</a>
+          </div>
+        </div>
+        <div class="portfolio">
+          <h3>Portfolio</h3>
+          <div class="portfolio-links">           
+            <a href="#">frontend Development</a>
+            <a href="#">Backend Development</a>
+            <a href="#">Website design</a>
+            <a href="#">Machine Learning</a>
+            <a href="#">Problem Solving & DSA</a>
+          </div>
+        </div>
+        <div class="connect">
+          <h3>Connect</h3>
+          <div class="social-links">
+            <a href="#"><img src="/images/LinkedIn.svg" alt="LinkedIn"></a>
+            <a href="#"><img src="/images/Instagram.svg" alt="Instagram"></a>
+            <a href="#"><img src="/images/Facebook.svg" alt="Facebook"></a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+  <div class="copyright">
+    <img src="/images/copyright-circle.svg" alt="copyright icon">
+    <p>2024 Copyright, All right reserved</p>
+  </div>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
