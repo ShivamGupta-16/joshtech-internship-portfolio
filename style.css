@@ -73,7 +73,7 @@ body {
 /* =====Hero Section==== */
 
 .hero {
-  background: url('/images/Group_260.svg') no-repeat right center;
+  background: url('images/Group_260.svg') no-repeat right center;
   background-size: contain;
   display: flex;
   align-items: center;
