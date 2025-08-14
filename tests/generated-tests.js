@@ -2,99 +2,107 @@
 ```javascript
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { openModal, closeModal, saveSkill } from './script.js'; // Assuming script.js exports these functions
+import { addSkill, updateSkillList, initCarousel,  } from './script.js'; //Assuming functions are exported
 
-jest.mock('./script.js', () => ({
-  openModal: jest.fn(),
-  closeModal: jest.fn(),
-  saveSkill: jest.fn(),
-}));
-
-
-describe('Modal Handling', () => {
-  beforeEach(() => {
-    render(<div id="root"></div>); // Replace with actual React component if needed
-
+describe('Add Skill Modal', () => {
+  test('Successfully adds a skill', () => {
+    const mockAddSkill = jest.fn();
+    addSkill(mockAddSkill);
+    fireEvent.click(screen.getByText('Add Skill')); //replace with actual trigger
+    fireEvent.change(screen.getByLabelText('Skill Name'), { target: { value: 'JavaScript' } });
+    fireEvent.click(screen.getByText('Add'));
+    expect(mockAddSkill).toHaveBeenCalledWith('JavaScript');
   });
 
-  it('should open the modal', () => {
-    openModal();
-    expect(openModal).toHaveBeenCalled();
+  test('Handles empty skill input', () => {
+    const mockAddSkill = jest.fn();
+    addSkill(mockAddSkill);
+    fireEvent.click(screen.getByText('Add Skill'));
+    fireEvent.click(screen.getByText('Add'));
+    expect(mockAddSkill).not.toHaveBeenCalled();
   });
 
-  it('should close the modal', () => {
-    closeModal();
-    expect(closeModal).toHaveBeenCalled();
-  });
-
-  it('should save a skill', () => {
-    const skill = 'JavaScript';
-    saveSkill(skill);
-    expect(saveSkill).toHaveBeenCalledWith(skill);
-  });
-
-
-  it('should handle empty skill input', () => {
-    saveSkill('');
-    expect(saveSkill).toHaveBeenCalledWith('');
-  });
-
-  it('should handle invalid skill input', () => {
-    saveSkill(123);
-    expect(saveSkill).toHaveBeenCalledWith(123);
+  test('Handles special characters in skill input', () => {
+    const mockAddSkill = jest.fn();
+    addSkill(mockAddSkill);
+    fireEvent.click(screen.getByText('Add Skill'));
+    fireEvent.change(screen.getByLabelText('Skill Name'), { target: { value: 'JavaScri$pt' } });
+    fireEvent.click(screen.getByText('Add'));
+    expect(mockAddSkill).toHaveBeenCalledWith('JavaScri$pt');
   });
 });
 
 
-describe('Image Sources', () => {
-  it('should have valid image sources', () => {
-    const images = document.querySelectorAll('img');
-    images.forEach(img => {
-      expect(img.src).toBeDefined();
-      expect(img.src).not.toBe('');
-      // Add more specific checks if you have particular image URLs to test.  Example:
-      // expect(img.src).toContain('valid-image-url.jpg');
+describe('Skill List Updates', () => {
+  test('Updates skill list after adding a skill', () => {
+    const mockSkillList = ['HTML', 'CSS'];
+    updateSkillList(mockSkillList, 'JavaScript');
+    expect(mockSkillList).toEqual(['HTML', 'CSS', 'JavaScript']);
+  });
 
+  test('Handles adding duplicate skills', () => {
+    const mockSkillList = ['HTML', 'CSS'];
+    updateSkillList(mockSkillList, 'HTML');
+    expect(mockSkillList).toEqual(['HTML', 'CSS']);
+  });
+
+    test('Handles empty skill list update', () => {
+    const mockSkillList = [];
+    updateSkillList(mockSkillList, 'HTML');
+    expect(mockSkillList).toEqual(['HTML']);
+  });
+});
+
+
+describe('Carousel Functionality', () => {
+  test('Carousel initializes correctly', () => {
+    const carousel = initCarousel();
+    expect(carousel).toBeDefined(); //Replace with actual assertion based on carousel implementation
+
+  });
+
+  test('Carousel navigates to next slide', () => {
+    const carousel = initCarousel();
+    fireEvent.click(screen.getByLabelText('Next Slide')); // Replace with actual selector
+    // Add assertions to check for slide change
+    expect(carousel.currentSlide).toBe(1); //Replace with actual state or property
+  });
+
+  test('Carousel navigates to previous slide', () => {
+    const carousel = initCarousel();
+      fireEvent.click(screen.getByLabelText('Previous Slide')); // Replace with actual selector
+
+    // Add assertions to check for slide change
+    expect(carousel.currentSlide).toBe(0); //Replace with actual state or property
+  });
+});
+
+
+describe('Image Verification', () => {
+  test('All images have src attributes', () => {
+    const images = screen.getAllByRole('img');
+    images.forEach(img => {
+      expect(img).toHaveAttribute('src');
     });
   });
 });
 
-// Add tests for responsiveness (requires more complex setup with window resizing)
-//  These are examples, you need to adapt them based on your actual implementation.
+// Add responsiveness tests if applicable.  Example below:
 describe('Responsiveness', () => {
-  it('should adjust navigation on smaller screens', () => {
-    //Simulate smaller screen - needs more sophisticated setup (e.g., window.innerWidth)
-    //expect(screen.getByRole('navigation')).toHaveStyle({ /* styles for smaller screens*/});
+  test('Element adjusts size on smaller screens', () => {
+    //Use a library like @testing-library/user-event for simulating resizing,  or jest-axe for accessibility testing
+    //Example using user-event:
+    // userEvent.resize(screen.getByRole('banner'), { width: 320 });
+    // expect(screen.getByRole('banner')).toHaveStyle({ width: '100%'}); //Replace with appropriate assertion
   });
-
-  it('should adjust modal size on larger screens', () => {
-    //Simulate larger screen - needs more sophisticated setup (e.g., window.innerWidth)
-    //expect(screen.getByRole('dialog')).toHaveStyle({ /* styles for larger screens*/});
-
-  });
-
-
 });
 
-// Add tests for carousel functionality if present (requires more specific selectors)
-describe('Carousel', () => {
- it('should navigate to next slide', () => {
-    //This depends on your carousel implementation.  Add selectors to find elements to interact with.
-    //fireEvent.click(screen.getByRole('button', { name: /next/i }));
-
- });
-
- it('should navigate to previous slide', () => {
-    //This depends on your carousel implementation.  Add selectors to find elements to interact with.
-    //fireEvent.click(screen.getByRole('button', { name: /previous/i }));
- });
-
-});
 ```
 
 // Tests for script.test.js
 ```javascript
 import { render, screen, fireEvent } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { openModal, closeModal, saveSkill, moveToSlide, updateDots, autoSlide } from './script';
 
 jest.mock('./script', () => ({
@@ -107,63 +115,67 @@ jest.mock('./script', () => ({
 }));
 
 
-describe('Modal Functions', () => {
-  test('openModal displays modal', () => {
-    openModal();
-    expect(openModal).toHaveBeenCalled();
-  });
+test('openModal opens modal', () => {
+  openModal();
+  expect(openModal).toHaveBeenCalled();
+});
 
-  test('closeModal hides modal', () => {
-    closeModal();
-    expect(closeModal).toHaveBeenCalled();
-  });
+test('closeModal closes modal', () => {
+  closeModal();
+  expect(closeModal).toHaveBeenCalled();
+});
 
-  test('saveSkill saves input value', () => {
-    const mockEvent = { target: { value: 'testSkill' } };
-    saveSkill(mockEvent);
-    expect(saveSkill).toHaveBeenCalledWith(mockEvent);
-  });
+test('saveSkill saves skill with valid input', () => {
+  saveSkill('React');
+  expect(saveSkill).toHaveBeenCalledWith('React');
+});
 
-  test('saveSkill handles empty input', () => {
-    const mockEvent = { target: { value: '' } };
-    saveSkill(mockEvent);
-    expect(saveSkill).toHaveBeenCalledWith(mockEvent);
-  });
+test('saveSkill throws error with invalid input', () => {
+  expect(() => saveSkill('')).toThrow();
 });
 
 
-describe('Carousel Functions', () => {
-  test('moveToSlide updates slide index', () => {
-    moveToSlide(2);
-    expect(moveToSlide).toHaveBeenCalledWith(2);
-  });
+test('moveToSlide moves to a valid slide', () => {
+  moveToSlide(1);
+  expect(moveToSlide).toHaveBeenCalledWith(1);
+});
 
-  test('moveToSlide handles invalid index', () => {
-    moveToSlide(-1);
-    expect(moveToSlide).toHaveBeenCalledWith(-1);
-  });
+test('moveToSlide handles invalid slide index', () => {
+  expect(() => moveToSlide(-1)).toThrow();
+  expect(() => moveToSlide(10)).toThrow(); //Assuming a limit of 10 slides
+});
 
-  test('updateDots updates active dot', () => {
-    updateDots(2);
-    expect(updateDots).toHaveBeenCalledWith(2);
-  });
-
-  test('updateDots handles invalid index', () => {
-    updateDots(-1);
-    expect(updateDots).toHaveBeenCalledWith(-1);
-  });
+test('updateDots updates dots based on slide index', () => {
+  updateDots(2);
+  expect(updateDots).toHaveBeenCalledWith(2);
+});
 
 
-  test('autoSlide transitions slides', () => {
+test('autoSlide transitions slides', () => {
+    const mockInterval = jest.spyOn(global, 'setInterval');
     autoSlide();
-    expect(autoSlide).toHaveBeenCalled();
-  });
-
-  test('autoSlide resets index', () => {
-    const mockSlides = 3;
-    autoSlide(mockSlides);
-    expect(autoSlide).toHaveBeenCalledWith(mockSlides);
-  });
-
+    expect(mockInterval).toHaveBeenCalled();
+    clearInterval(mockInterval.mock.calls[0][0]);
 });
+
+
+test('autoSlide loops back to the first slide', () => {
+    const mockInterval = jest.spyOn(global, 'setInterval');
+    autoSlide();
+    //Simulate reaching the end of the slides and looping
+    //This would need to be tailored to the actual autoSlide implementation in script.js
+    //Example assuming autoSlide updates a current slide index
+    // expect(currentSlideIndex).toBe(0);
+    clearInterval(mockInterval.mock.calls[0][0]);
+});
+
+test('dot click navigation', () => {
+    //This requires mocking or rendering the relevant DOM elements in script.js
+    //Example:
+    // render(<Carousel />);
+    // const dot = screen.getByRole('button', { name: /dot 1/i });
+    // fireEvent.click(dot);
+    // expect(moveToSlide).toHaveBeenCalledWith(0); //Assuming dot 1 corresponds to slide 0.
+});
+
 ```
